@@ -2,7 +2,10 @@ trigger:
     - master 
 
 variables:
- buildStage: "Build"
+    buildStage: "no"
 
 stages:
+    variables:
+        buildStage: "Build xc"
+
     - stage:$(buildStage)
