@@ -4,9 +4,12 @@ trigger:
 
 #These are global variables have 3 priority out of 5, 5 being the least
 variables:
-    buildStage: "Build"
+    buildStage: Build
 
 stages:
-- stage: $(BuldStage)
+- stage: $(buildStage)
+  jobs:
+  - job: $(buildStage)
+    
 
 
