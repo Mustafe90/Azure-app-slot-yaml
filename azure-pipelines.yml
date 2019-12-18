@@ -1,11 +1,6 @@
 trigger: 
     - master 
 
-variables:
-    buildStage: "no"
 
-stages:
-    variables:
-        buildStage: "Build xc"
-
-    - stage:$(buildStage)
+stages: Deploy App Slot
+    - stage: Build and Publish
