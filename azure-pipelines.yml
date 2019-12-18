@@ -1,10 +1,5 @@
 trigger: 
     - master 
 
-
 stages: DeployAppSlot
 - stage: BuildAndPublish
-        pool: 
-        "windows-latest"
-        jobs:
-        - job:Build
