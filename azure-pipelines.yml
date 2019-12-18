@@ -3,9 +3,7 @@ trigger:
 
 stages:
     - stage: Build
-      pool:
-       vmImage:"windows-2019"
-      
+ 
       jobs:
           - job: Build
             steps:
