@@ -1,6 +1,6 @@
 trigger: 
-    - master 
+    -master 
 
 
 stages: DeployAppSlot
-    - stage: BuildAndPublish
+    -stage: BuildAndPublish
