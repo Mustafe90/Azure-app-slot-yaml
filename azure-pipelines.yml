@@ -34,7 +34,7 @@ stages:
                   inputs:
                     projects: "**/*.csproj"
                     command: publish
-                    arguments: --no-build --no-restore --configuration Release --verbosity d
+                    arguments: --no-build --no-restore --configuration Release --verbosity d --output $(Build.SourcesDirectory)
 
                 
                   
