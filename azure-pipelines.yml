@@ -1,2 +1,8 @@
 trigger: 
     - master 
+
+variables:
+ buildStage: "Build"
+
+stages:
+    - stage:$(buildStage)
