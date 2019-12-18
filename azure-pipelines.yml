@@ -48,14 +48,14 @@ stages:
                   inputs:
                     projects: "**/*.csproj"
                     command: publish
-                    arguments: --no-build --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)
+                    arguments: --no-build --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)/Publish
 
                 - task: PublishPipelineArtifact@1
                   condition: succeeded() 
                   displayName: "Publish Release"
                   inputs:
                       artifact: AppRelease
-                      targetPath: $(System.DefaultWorkingDirectory)
+                      targetPath: $(System.DefaultWorkingDirectory)/Publish
 
                 
                   
