@@ -1,2 +1,6 @@
 trigger:
     - master
+
+
+stages:
+    stage: Build App
