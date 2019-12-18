@@ -1,5 +1,12 @@
-trigger: 
+
+trigger:
     - master 
 
-stages: DeployAppSlot
-- stage: BuildAndPublish
+#These are global variables have 3 priority out of 5, 5 being the least
+variables:
+    buildStage: "Build"
+
+stages:
+- stage: $(BuldStage)
+
+
