@@ -2,5 +2,5 @@ trigger:
     - master 
 
 
-stages: Deploy App Slot
-    - stage: Build and Publish
+stages: DeployAppSlot
+    - stage: BuildAndPublish
