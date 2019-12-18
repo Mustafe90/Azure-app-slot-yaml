@@ -6,4 +6,15 @@ stages:
       pool:
         vmImage:"windows-latest"
       
-
+      jobs:
+          - job: Build
+            steps:
+                - task: DotNetCoreCLI@2
+                  displayName: "Nuget Restore"
+                  inputs:
+                    projects: "**/*.csproj"
+                    command: restore
+                    arguments: --verbosity d
+                
+                      
+                  
