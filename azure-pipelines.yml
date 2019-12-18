@@ -22,7 +22,7 @@ stages:
                   inputs:
                       projects: "**/*.csproj"
                       command: build
-                      arguments: --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)
+                      arguments: --no-restore --configuration Release --verbosity d
                 
                 - task: PublishPipelineArtifact@1
                   inputs:
