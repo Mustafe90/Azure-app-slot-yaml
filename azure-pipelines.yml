@@ -3,7 +3,7 @@ trigger:
 
 pool:
     vmImage: "windows-latest"
-    
+
 stages:
     - stage: Build
       
@@ -17,5 +17,12 @@ stages:
                     command: restore
                     arguments: --verbosity d
                 
-                      
+                - task: DotNetCoreCLI@2
+                  displayName: "Dotnet Build"
+                  inputs:
+                      projects: "**/*.csproj"
+                      command: build
+                      arguments: --no-restore -configuration Release ----verbosity d
+
+                
                   
