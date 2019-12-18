@@ -22,7 +22,7 @@ stages:
                   inputs:
                       projects: "**/*.csproj"
                       command: build
-                      arguments: --no-restore -configuration Release ----verbosity d
+                      arguments: --no-restore --configuration Release --verbosity d
 
                 
                   
