@@ -24,5 +24,17 @@ stages:
                       command: build
                       arguments: --no-restore --configuration Release --verbosity d
 
+          - job: Publish
+            dependsOn: Build
+            condition: succeeded()
+
+            steps:
+                - task: DotNetCoreCLI@2
+                  displayName: "Publish"
+                  inputs:
+                    projects: "**/*.csproj"
+                    command: publish
+                    arguments: --no-build --no-restore --configuration Release --verbosity d
+
                 
                   
