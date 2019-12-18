@@ -37,6 +37,7 @@ stages:
 
             steps:
                 - task: DownloadPipelineArtifact@2
+                  displayName: "Download Build"
                   inputs:
                    artifactName: AppBuilt
                    targetPath: $(System.DefaultWorkingDirectory)
@@ -47,7 +48,14 @@ stages:
                   inputs:
                     projects: "**/*.csproj"
                     command: publish
-                    arguments: --no-build --no-restore --configuration Release --verbosity d --output $(Build.SourcesDirectory)
+                    arguments: --no-build --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)
+
+                - task: PublishPipelineArtifact@1
+                  condition: succeeded() 
+                  displayName: "Publish Release"
+                  inputs:
+                      artifact: AppRelease
+                      targetPath: $(System.DefaultWorkingDirectory)
 
                 
                   
