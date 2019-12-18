@@ -3,4 +3,4 @@ trigger:
 
 
 stages:
-    stage: Build-App
+    stage: BuildApp
