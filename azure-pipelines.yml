@@ -7,9 +7,9 @@ variables:
     buildStage: Build
 
 stages:
-- stage: $(buildStage)
+- stage: Build
   jobs:
-  - job: $(buildStage)
+  - job: Build
     
 
 
