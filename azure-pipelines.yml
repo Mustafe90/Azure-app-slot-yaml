@@ -26,7 +26,7 @@ stages:
                 
                 - task: PublishPipelineArtifact@1
                   inputs:
-                   ArtifactName: AppSlot
+                   ArtifactName: AppBuilt
                    targetPath: $(System.DefaultWorkingDirectory)
 
                       
@@ -38,13 +38,14 @@ stages:
             steps:
                 - task: DownloadPipelineArtifact@2
                   inputs:
-                   artifactName: AppSlot
+                   artifactName: AppBuilt
+                   targetPath: $(System.DefaultWorkingDirectory)
                       
 
                 - task: DotNetCoreCLI@2
                   displayName: "Publish"
                   inputs:
-                    projects: "$(Pipeline.Workspace)/AppSlot/**/*.csproj"
+                    projects: "**/*.csproj"
                     command: publish
                     arguments: --no-build --no-restore --configuration Release --verbosity d --output $(Build.SourcesDirectory)
 
