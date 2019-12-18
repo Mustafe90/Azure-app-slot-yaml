@@ -4,4 +4,9 @@ trigger:
 
 stages:
     - stage: Build
+    
+    jobs: Build
+        job:Build
+
+
        
