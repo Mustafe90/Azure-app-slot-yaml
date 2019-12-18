@@ -3,6 +3,6 @@ trigger:
 
 
 stages: DeployAppSlot
-    - stage: BuildAndPublish
-          jobs:
-             -job:Build
+- stage: BuildAndPublish
+        jobs:
+        - job:Build
