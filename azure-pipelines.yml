@@ -1,18 +1,9 @@
-
 trigger:
-    - master 
-
-#These are global variables have 3 priority out of 5, 5 being the least
-variables:
-    buildStage: Build
-
+    - master
 
 stages:
-- stage: Build
-  pool: 
-   vmImage: "windows-latest"
-  jobs:
-  - job: Build
-    
-
+    - stage: Build
+      pool:
+        vmImage:"windows-latest"
+      
 
