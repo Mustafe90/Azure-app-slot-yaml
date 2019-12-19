@@ -7,10 +7,6 @@ pool:
 stages:
     - stage: Build
       
-      variables:
-        buildPath: "Build"
-        publishPath: "Publish"
-      
       jobs:
           - job: Build
             steps:
@@ -26,12 +22,12 @@ stages:
                   inputs:
                       projects: "**/*.csproj"
                       command: build
-                      arguments: --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)/$(buildPath)
+                      arguments: --no-restore --configuration Release --verbosity d
                 
                 - task: PublishPipelineArtifact@1
                   inputs:
                    ArtifactName: AppBuilt
-                   targetPath: $(System.DefaultWorkingDirectory)/$(buildPath)
+                   targetPath: $(System.DefaultWorkingDirectory)
               
 
           - job: Publish
@@ -43,7 +39,7 @@ stages:
                   displayName: "Download Build"
                   inputs:
                    artifactName: AppBuilt
-                   targetPath: $(System.DefaultWorkingDirectory)/$(buildPath)
+                   targetPath: $(System.DefaultWorkingDirectory)
                       
 
                 - task: DotNetCoreCLI@2
@@ -51,14 +47,14 @@ stages:
                   inputs:
                     projects: " $(System.DefaultWorkingDirectory)/$(buildPath)/**/*.csproj"
                     command: publish
-                    arguments: --no-build --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)/$(publishPath)
+                    arguments: --no-build --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)/Publish
 
                 - task: PublishPipelineArtifact@1
                   condition: succeeded() 
                   displayName: "Publish Release"
                   inputs:
                       artifact: AppRelease
-                      targetPath: $(System.DefaultWorkingDirectory)/$(publishPath)
+                      targetPath: $(System.DefaultWorkingDirectory)/Publish
 
     - stage: Deplopyment
 
