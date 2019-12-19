@@ -70,12 +70,15 @@ stages:
                  deploy:
                      steps:
                          - task: AzureWebApp@1
+                         
                            inputs:
                                azureSubscription: "appSlotDemoServiceConnection"
                                appType: webApp
                                appName: "DavidsDavidsonApp"
                                resourceGroupName: "AAPSD"
                                slotName: staging
-                               deployToSlotOrASE: true        
+                               deployToSlotOrASE: true
+                               package: $(System.DefaultWorkingDirectory)/**/*/*.zip
+
 
                   
