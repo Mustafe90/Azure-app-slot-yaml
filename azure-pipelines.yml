@@ -69,8 +69,10 @@ stages:
              runOnce:
                  deploy:
                      steps:
+
+                          #Cheating a bit here :P 
                          - task: DownloadPipelineArtifact@2
-                           displayName: "Download Build"
+                           displayName: "Downloading Cause it aint downloading right"
                            inputs:
                             artifactName: AppRelease
                             targetPath: $(System.DefaultWorkingDirectory)
