@@ -75,7 +75,7 @@ stages:
                      steps:
                          - task: AzureWebApp@1
                            inputs:
-                               azureSubscription: "AppSlotServiceConnection"
+                               azureSubscription: "appSlotDemoServiceConnection"
                                appType: webApp
                                appName: "DavidsDavidsonApp"
                                resourceGroupName: "AAPSD"
