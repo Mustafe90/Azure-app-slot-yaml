@@ -66,7 +66,7 @@ stages:
             strategy:
 
             #Blue-Green deployment will be soon available which means that will be far more appriopriate then deploying it once :P 
-             runOnce:
+             blueGreen:
                  deploy:
                      steps:
 
@@ -88,12 +88,12 @@ stages:
 
                          - task: AzureAppServiceManage@0
                            inputs:
-                              azureSubscription: 'appSlotDemoServiceConnection'
-                              appType: webApp
-                              WebAppName: 'DavidsDavidsonApp'
-                              ResourceGroupName: 'AAPSD'
-                              SourceSlot: staging
-                              SwapWithProduction: true                          
+                               azureSubscription: "appSlotDemoServiceConnection"
+                               appType: webApp
+                               WebAppName: 'DavidsDavidsonApp'
+                               ResourceGroupName: 'AAPSD'
+                               SourceSlot: staging
+                               SwapWithProduction: true                          
 
                       
 
