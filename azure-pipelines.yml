@@ -49,7 +49,7 @@ stages:
                 - task: DotNetCoreCLI@2
                   displayName: "Publish"
                   inputs:
-                    projects: "**/*.csproj"
+                    projects: " $(System.DefaultWorkingDirectory)/$(buildPath)/**/*.csproj"
                     command: publish
                     arguments: --no-build --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)/$(publishPath)
 
