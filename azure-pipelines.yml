@@ -69,8 +69,13 @@ stages:
              runOnce:
                  deploy:
                      steps:
+                         - task: DownloadPipelineArtifact@2
+                           displayName: "Download Build"
+                           inputs:
+                            artifactName: AppRelease
+                            targetPath: $(System.DefaultWorkingDirectory)
+
                          - task: AzureWebApp@1
-                         
                            inputs:
                                azureSubscription: "appSlotDemoServiceConnection"
                                appType: webApp
@@ -78,7 +83,6 @@ stages:
                                resourceGroupName: "AAPSD"
                                slotName: staging
                                deployToSlotOrASE: true
-                               package: $(System.DefaultWorkingDirectory)/**/*/*.zip
 
 
                   
