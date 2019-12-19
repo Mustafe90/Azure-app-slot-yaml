@@ -86,5 +86,16 @@ stages:
                                slotName: staging
                                deployToSlotOrASE: true
 
+                         - task: AzureAppServiceManage@0
+                           inputs:
+                              azureSubscription: 'appSlotDemoServiceConnection'
+                              appType: webApp
+                              WebAppName: 'DavidsDavidsonApp'
+                              ResourceGroupName: 'AAPSD'
+                              SourceSlot: staging
+                              SwapWithProduction: true                          
+
+                      
+
 
                   
