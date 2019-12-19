@@ -26,7 +26,7 @@ stages:
                   inputs:
                       projects: "**/*.csproj"
                       command: build
-                      arguments: --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)/$(buildPath)
+                      arguments: --no-restore --configuration Release --verbosity d --output $(System.DefaultWorkingDirectory)
                 
                 - task: PublishPipelineArtifact@1
                   inputs:
@@ -43,7 +43,7 @@ stages:
                   displayName: "Download Build"
                   inputs:
                    artifactName: AppBuilt
-                   targetPath: $(System.DefaultWorkingDirectory)
+                   targetPath: $(System.DefaultWorkingDirectory)/$(buildPath)
                       
 
                 - task: DotNetCoreCLI@2
